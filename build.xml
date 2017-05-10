@@ -11,7 +11,7 @@
   </target>
 
   <target name="phpdepend">
-    <exec command="${phing} _phpdepend" passthru="true"/>
+    <exec command="${phing} _phpdepend"/>
   </target>
   <target name="_phpdepend">
     <mkdir dir="${phpdepend.output.xml.dir}"/>
@@ -19,7 +19,7 @@
     <exec
       command="${phpdepend.exec} ${phpdepend.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
     <xslt
       file="${phpdepend.output.xml.file}"
@@ -29,7 +29,7 @@
   </target>
 
   <target name="phpcs">
-    <exec command="${phing} _phpcs" passthru="true"/>
+    <exec command="${phing} _phpcs"/>
   </target>
   <target name="_phpcs">
     <mkdir dir="${phpcs.output.xml.dir}"/>
@@ -37,7 +37,7 @@
     <exec
       command="${phpcs.exec} ${phpcs.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
     <xslt
       file="${phpcs.output.xml.file}"
@@ -47,7 +47,7 @@
   </target>
 
   <target name="phpunit">
-    <exec command="${phing} _phpunit" passthru="true"/>
+    <exec command="${phing} _phpunit"/>
   </target>
   <target name="_phpunit">
     <mkdir dir="${phpunit.output.xml.dir}"/>
@@ -55,7 +55,7 @@
     <exec
       command="${phpunit.exec} ${phpunit.args}"
       dir="${project.basedir}/test"
-      passthru="true"
+     
     />
     <xslt
       file="${phpunit.output.xml.file}"
@@ -65,7 +65,7 @@
   </target>
 
   <target name="phpmd">
-    <exec command="${phing} _phpmd" passthru="true"/>
+    <exec command="${phing} _phpmd"/>
   </target>
   <target name="_phpmd">
     <mkdir dir="${phpmd.output.xml.dir}"/>
@@ -73,7 +73,7 @@
     <exec
       command="${phpmd.exec} ${phpmd.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
     <xslt
       file="${phpmd.output.xml.file}"
@@ -83,7 +83,7 @@
   </target>
 
   <target name="phpcpd">
-    <exec command="${phing} _phpcpd" passthru="true"/>
+    <exec command="${phing} _phpcpd"/>
   </target>
   <target name="_phpcpd">
     <mkdir dir="${phpcpd.output.xml.dir}"/>
@@ -91,7 +91,7 @@
     <exec
       command="${phpcpd.exec} ${phpcpd.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
     <xslt
       file="${phpcpd.output.xml.file}"
@@ -101,50 +101,50 @@
   </target>
 
   <target name="phpdoc">
-    <exec command="${phing} _phpdoc" passthru="true"/>
+    <exec command="${phing} _phpdoc"/>
   </target>
   <target name="_phpdoc">
     <mkdir dir="${phpdoc.output.html.dir}"/>
     <exec
       command="${phpdoc.exec} ${phpdoc.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
   </target>
 
   <target name="phploc">
-    <exec command="${phing} _phploc" passthru="true"/>
+    <exec command="${phing} _phploc"/>
   </target>
   <target name="_phploc">
     <mkdir dir="${phploc.output.html.dir}"/>
     <exec
       command="${phploc.exec} ${phploc.args} > ${phploc.output.html.file}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
   </target>
 
   <target name="package">
-    <exec command="${phing} _package" passthru="true"/>
+    <exec command="${phing} _package"/>
   </target>
   <target name="_package">
     <mkdir dir="${package.output.dir}"/>
     <exec
       command="${pear.exec} channel-discover ${pear.channel}"
-      dir="${project.basedir}" passthru="true"
+      dir="${project.basedir}"
     />
     <exec
       command="${genphar.exec} ${genphar.args}"
       dir="${project.basedir}"
-      passthru="true"
+     
     />
     <exec
-      command="${genpear.exec}" dir="${project.basedir}" passthru="true"
+      command="${genpear.exec}" dir="${project.basedir}"
       output="${dir.output}/package.xml"
     />
     <copy file="${dir.output}/package.xml" tofile="${dir.src}/package.xml" />
     <exec
-      command="${pear.exec} package" dir="${dir.src}" passthru="true"
+      command="${pear.exec} package" dir="${dir.src}"
     />
     <delete file="${dir.src}/package.xml" />
     <move file="${dir.src}/${peartgz}" tofile="${dir.output}/${peartgz}" overwrite="true"/>
@@ -154,91 +154,91 @@
   	<mkdir dir="${dir.vendor}"/>
   	<exec
   	  command="${defaultpear.bin} config-create ${dir.vendor} ${dir.vendor}/.pearrc"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set php_bin ${php.bin}"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set php_dir ${dir.vendor}/php"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set bin_dir ${dir.vendor}/bin"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set cache_dir ${dir.vendor}/cache"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set cfg_dir ${dir.vendor}/cfg"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set data_dir ${dir.vendor}/data"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set download_dir ${dir.vendor}/download"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set temp_dir ${dir.vendor}/tmp"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set doc_dir ${dir.vendor}/doc"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set test_dir ${dir.vendor}/test"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set www_dir ${dir.vendor}/www"
-      passthru="true"
+     
     />
     <exec
       command="${defaultpear.exec} config-set auto_discover 1"
-      passthru="true"
+     
     />
   	<exec
   	  command="${defaultpear.exec} install pear"
-  	  passthru="true"
+  	 
   	/>
   	<exec
       command="${pear.exec} install --alldeps pear.phpunit.de/PHPUnit"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps phpunit/phploc"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps pear.docblox-project.org/DocBlox"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps pear.pdepend.org/PHP_Depend-beta"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps pear.phpmd.org/PHP_PMD"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps pear.phpunit.de/phpcpd"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps PHP_CodeSniffer"
-      passthru="true"
+     
     />
     <exec
       command="${pear.exec} install --alldeps pear.phing.info/phing"
-      passthru="true"
+     
     />
   </target>
 
