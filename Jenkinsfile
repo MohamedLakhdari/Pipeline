@@ -2,21 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Clean workspace') {
-            steps {
-                deleteDir()        
-            }
-        }
-    
-        stage('Checkout source') {
-            steps {
-                checkout scm    
-            }
-        }
-        
         stage('Build') {
             steps {
-                exec 'ant build'
+                bat 'ant build'
             }
         }
     }
