@@ -1,3 +1,4 @@
+pipeline {
 node('master') {
     stage('Clean workspace') {
         echo 'Clean workspace'
@@ -12,4 +13,5 @@ node('master') {
              submoduleCfg: [], 
              userRemoteConfigs: [[url: 'https://github.com/MohamedLakhdari/Pipeline']]])     
     }
+}
 }
