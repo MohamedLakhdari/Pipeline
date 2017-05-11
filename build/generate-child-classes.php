@@ -12,7 +12,7 @@
 require __DIR__ . '/../src/autoload.php';
 
 $template  = file_get_contents(__DIR__ . '/child-class.tpl');
-$class     = new ReflectionClass('SebastianBergmann\Money\Currency');
+$class     = new ReflectionClass('MohamedLakhdari\Pipeline\Currency');
 $attribute = $class->getProperty('currencies');
 $attribute->setAccessible(true);
 
