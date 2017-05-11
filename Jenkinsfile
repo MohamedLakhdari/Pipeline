@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Clean workspace') {
             steps{
-                sh 'Clean workspace'
                 deleteDir()        
             }
         }
@@ -12,7 +11,6 @@ pipeline {
         stage('Checkout source') {
             steps
             {
-                sh 'Checkout source'
                 checkout(
                     [$class: 'GitSCM', branches: [[name: '*/master']], 
                     doGenerateSubmoduleConfigurations: false, extensions: [], 
