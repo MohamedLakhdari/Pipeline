@@ -10,11 +10,7 @@ pipeline {
     
         stage('Checkout source') {
             steps {
-                checkout(
-                    [$class: 'GitSCM', branches: [[name: '*/master']], 
-                    doGenerateSubmoduleConfigurations: false, extensions: [], 
-                    submoduleCfg: [], 
-                    userRemoteConfigs: [[url: 'https://github.com/MohamedLakhdari/Pipeline']]])     
+                checkout scm    
             }
         }
         
