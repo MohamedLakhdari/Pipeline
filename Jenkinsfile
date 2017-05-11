@@ -20,7 +20,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                cmd 'ant build'
+                sh 'ant build'
             }
         }
     }
